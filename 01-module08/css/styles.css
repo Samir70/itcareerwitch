@@ -35,6 +35,9 @@ figure img {
 main {
   width: 90vw;
   margin: auto;
+}
+
+main.max-3-cols {
   display: flex;
   justify-content: space-between;
 }
@@ -52,6 +55,18 @@ main .right-column {
   margin-left: 0.5em;
   padding-left: 0.5em;
   border-left: 2px solid black;
+}
+
+main table {
+  margin: auto;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid grey;
+  padding: 0.3em 0.6em;
+  text-align: center;
 }
 
 footer {
