@@ -2,3 +2,9 @@ h2 {
   color: white;
   background-color: blue;
 }
+
+body {
+  font-size: 2em;
+}
+
+/* https://jigsaw.w3.org/css-validator/#validate_by_input */
