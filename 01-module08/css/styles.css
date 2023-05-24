@@ -33,8 +33,25 @@ figure img {
 }
 
 main {
-  width: 50vw;
+  width: 90vw;
   margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+main aside {
+  width: 50vw;
+}
+
+main .left-column {
+  margin-right: 0.5em;
+  padding-right: 0.5em;
+  border-right: 2px solid black;
+}
+main .right-column {
+  margin-left: 0.5em;
+  padding-left: 0.5em;
+  border-left: 2px solid black;
 }
 
 footer {
@@ -53,6 +70,16 @@ footer {
   }
 }
 /* End for mobiles */
+
+
+
+/* For tablets */
+@media screen and (max-width:960px) {
+  .desktop {
+    display: none;
+  }
+}
+/* End for tablets */
 
 
 @media screen and (min-width: 800px) {
