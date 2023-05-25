@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <script type="text/javascript">
+    var a = 0, b = 0, prevAns = 0;
+    var gettingFirstNum = true;
+    var readoutVal = ''
+    var operator = ''
+    const getnum = (n) => {
+      if (gettingFirstNum) {
+        if (a >= 100) {
+          alert("I can only manage 3 digit numbers. \nI'm only a baby!")
+        } else {
+          a = a * 10 + n
+          readoutVal = ''+a
+        }
+      } else {
+        if (b >= 100) {
+          alert("I can only manage 3 digit numbers. \nI'm only a baby!")
+        } else {
+          b = b * 10 + n
+          readoutVal = `${a} ${operator} ${b}`
+        }
+      }
+      const readout = document.getElementById("readout")
+      readout.innerText = readoutVal
+    }
+
+    const setDecimal = () => {
+      alert("I don't understand decimals, so please don't use them!")
+    }
+
+    const setOperator = (op) => {
+      readoutVal = '';
+      if (gettingFirstNum) {
+        if (a === 0) {a = prevAns}
+        operator = op
+        gettingFirstNum = false
+      } else if (b === 0) {
+        operator = op
+      } else {
+        a = calcReadout()
+        b = 0
+        operator = op
+      } 
+      const readout = document.getElementById("readout")
+      readout.innerText = `${a} ${operator}`
+    }
+
+    const calcReadout = () => {
+      var out = 0;
+      switch (operator) {
+        case '*' : out = a * b; break;
+        case '/' : out = a / b; break;
+        case '+' : out = a + b; break;
+        case '-' : out = a - b; break;
+        default : out = a
+      }
+      return out;
+    }
+
+    const showAnswer = () => {
+      prevAns = calcReadout()
+      gettingFirstNum = true;
+      a = 0;
+      b = 0;
+      operator = ''
+      const readout = document.getElementById("readout")
+      readout.innerText = prevAns
+    }
+
+    const clearReadout = () => {
+      gettingFirstNum = true;
+      a = 0;
+      b = 0;
+      operator = ''
+      const readout = document.getElementById("readout")
+      readout.innerText = 0
+    }
+  </script>
+</head>
+<body>
+    <h1>IT Career Switch Calculator</h1>
+    <table>
+      <caption>Alpha Zero started here!</caption>
+      <tr><td id="readout" colspan="5">0</td></tr>
+      <tr>
+        <td class="keypad-number" onclick="getnum(7)">7</td>
+        <td class="keypad-number" onclick="getnum(8)">8</td>
+        <td class="keypad-number" onclick="getnum(9)">9</td>
+        <td class="delete-keys" colspan="2" onclick="clearReadout()">clear</td>
+      </tr>
+      <tr>
+        <td class="keypad-number" onclick="getnum(4)">4</td>
+        <td class="keypad-number" onclick="getnum(5)">5</td>
+        <td class="keypad-number" onclick="getnum(6)">6</td>
+        <td class="keypad-operators" onclick="setOperator('*')">*</td>
+        <td class="keypad-operators" onclick="setOperator('/')">/</td>
+      </tr>
+      <tr>
+        <td class="keypad-number" onclick="getnum(1)">1</td>
+        <td class="keypad-number" onclick="getnum(2)">2</td>
+        <td class="keypad-number" onclick="getnum(3)">3</td>
+        <td class="keypad-operators" onclick="setOperator('+')">+</td>
+        <td class="keypad-operators" onclick="setOperator('-')">-</td>
+      </tr>
+      <tr>
+        <td class="keypad-number zero-button" onclick="getnum(0)" colspan="2">0</td>
+        <td class="keypad-number decimal" onclick="setDecimal()">.</td>
+        <td class="keypad-equals" colspan="2" onclick="showAnswer()">=</td>
+      </tr>
+    </table>
+</body>
+</html>
