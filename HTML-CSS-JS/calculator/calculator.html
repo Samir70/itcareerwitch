@@ -9,8 +9,15 @@
   <script type="text/javascript">
     var a = 0, b = 0, prevAns = 0;
     var gettingFirstNum = true;
+    var usedDecimal = false;
     var readoutVal = ''
     var operator = ''
+
+    const setReadout = (str) => {
+      const readout = document.getElementById("readout")
+      readout.innerText = str
+    }
+
     const getnum = (n) => {
       if (gettingFirstNum) {
         if (a >= 100) {
@@ -27,8 +34,7 @@
           readoutVal = `${a} ${operator} ${b}`
         }
       }
-      const readout = document.getElementById("readout")
-      readout.innerText = readoutVal
+      setReadout(readoutVal)
     }
 
     const setDecimal = () => {
@@ -48,8 +54,7 @@
         b = 0
         operator = op
       } 
-      const readout = document.getElementById("readout")
-      readout.innerText = `${a} ${operator}`
+      setReadout(`${a} ${operator}`)
     }
 
     const calcReadout = () => {
@@ -70,8 +75,7 @@
       a = 0;
       b = 0;
       operator = ''
-      const readout = document.getElementById("readout")
-      readout.innerText = prevAns
+      setReadout(prevAns)
     }
 
     const clearReadout = () => {
@@ -79,8 +83,7 @@
       a = 0;
       b = 0;
       operator = ''
-      const readout = document.getElementById("readout")
-      readout.innerText = 0
+      setReadout(0)
     }
   </script>
 </head>
