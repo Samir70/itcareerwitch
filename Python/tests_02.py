@@ -1,13 +1,13 @@
 """Tests at the end of module 02"""
 
-x = 15
-print(type(x))
+X = 15
+print(type(X))
 
-y = 6.36272
-print(type(y))
+Y = 6.36272
+print(type(Y))
 
-b = True
-print(b)
+B = True
+print(B)
 
 # concat 3 strings
 [s, t, u] = ["One", "Two", "Three"]
