@@ -1,6 +1,7 @@
 '''datetime'''
+import os
 from datetime import date
-from datetime import time
+# from datetime import time
 from datetime import datetime
 
 today = date.today()
@@ -15,7 +16,6 @@ print("The seconds ", date_time.second)
 
 #Working directory
 print("\n")
-import os
 
 dirpath = os.getcwd()
 print("Your current working directory is: " + dirpath)
@@ -24,5 +24,4 @@ foldername = os.path.basename(dirpath)
 print("The specific folder is: " + foldername)
 
 print("=========================")
-import os
 print(os.stat("m25_datetime.py"))

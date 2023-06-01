@@ -6,4 +6,4 @@ try:
 except ZeroDivisionError:
     print("I don't know how to divide by zero")
 except ValueError:
-    print("Either you didn't give me two space seperated numbers, or one of them was letters not digits")
+    print("Either you didn't give me two numbers, or one of them was letters not digits")
