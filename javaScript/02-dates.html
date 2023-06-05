@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dates</title>
+</head>
+<body>
+  <div id="show-dates">Check the console for a date</div>
+  <script>
+    let p = document.getElementById("show-dates")
+    let txt = p.innerHTML;
+    const addDate = (n) => {
+      let d = new Date(n)
+      txt += "<br> date "+ n +" is: " + d.toDateString()      
+    }
+    [0, 1123123, -1, -3600000*2].forEach(d => addDate(d))
+    p.innerHTML = txt;
+  </script>
+</body>
+</html>
