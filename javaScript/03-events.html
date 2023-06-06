@@ -25,5 +25,14 @@
       obj.innerText = "Mouse over me!!!"
     }
   </script>
+  <div id="timer">0 seconds</div>
+  <script>
+    let t = 0;
+    let tDiv = document.getElementById("timer")
+    setInterval(() => {
+      t++
+      tDiv.innerText = t + " seconds"
+    }, 1000);
+  </script>
 </body>
 </html>
