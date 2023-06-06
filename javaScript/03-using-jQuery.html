@@ -7,12 +7,37 @@
   <title>Using jQuery</title>
   <script src="./jquery/jquery-3.7.0.js"></script>
   <script>
-    $(document).ready(() => {
-      $("#main-title").text("I'm ready!!!")
+    $(document).ready(function () {
+      $("#main-title").text("I'm ready!!!");
+      $("p").click(function() {
+        var cur = $(this).attr("class")
+        console.log("I have been clicked!", cur)
+        let nextClass = cur === "red-text" ? "green-text" : "red-text"
+        $(this).attr("class", nextClass)
+      })
     })
   </script>
+  <style>
+    .red-text {
+      color:red;
+    }
+    .green-text {
+      color: green;
+    }
+    p {
+      font-weight: bolder;
+    }
+  </style>
 </head>
 <body>
     <h1 id="main-title">Soon as the document is ready, I will change!</h1>
+    <p class="red-text">Line1</p>
+    <p class="green-text">Line2</p>
+    <p class="red-text">Line3</p>
+    <p class="green-text">Line4</p>
+    <p class="red-text">Line5</p>
+    <p class="green-text">Line6</p>
+    <p class="red-text">Line7</p>
+    <p class="green-text">Line8</p>
 </body>
 </html>
